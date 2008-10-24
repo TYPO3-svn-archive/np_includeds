@@ -1,0 +1,5 @@
+ #cat=others;type=string;label=Path FCE data structures:Path to the static data structures of flexible content elements
+path_fce = fileadmin/templates/ds/fce/
+
+ #cat=others;type=string;label=Path Page data structures:Path to the static data structures of pages
+path_page = fileadmin/templates/ds/page/
