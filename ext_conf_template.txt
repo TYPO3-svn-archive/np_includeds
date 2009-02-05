@@ -3,3 +3,6 @@ path_fce = fileadmin/templates/ds/fce/
 
  #cat=others;type=string;label=Path Page data structures:Path to the static data structures of pages
 path_page = fileadmin/templates/ds/page/
+
+ #cat=others;type=boolean;label=XCLASS Templavoila:Static FCEs don't appear in TemplaVoilas New Content Element Wizard. With this option you can activate an XCLASS which fixes this issue
+xclass = 1
