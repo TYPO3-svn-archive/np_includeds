@@ -4,8 +4,8 @@ require_once (t3lib_extMgm::extPath ('templavoila').'mod1/db_new_content_el.php'
 
 class ux_tx_templavoila_dbnewcontentel extends tx_templavoila_dbnewcontentel {
 	function wizardArray()	{
+		$selectGlobal = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['np_includeds']['xclass_global'] === TRUE ? TRUE : FALSE;
 		$wizardItems = parent::wizardArray();
-		$storageFolderPID = $this->apiObj->getStorageFolderPid($this->id);
 		//debug($wizardItems);
 		
 			// Fetch static data structures which are stored in XML files:
@@ -20,10 +20,13 @@ class ux_tx_templavoila_dbnewcontentel extends tx_templavoila_dbnewcontentel {
 		}
 			// Fetch all template object records which uare based one of the previously fetched data structures:
 		$addWhere = $this->buildRecordWhere('tx_templavoila_tmplobj');
+		if (!$selectGlobal) {
+			$addWhere = ' AND pid = ' . intval($this->apiObj->getStorageFolderPid($this->id)) . $addWhere;
+		}
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'*',
 			'tx_templavoila_tmplobj',
-			'pid='.intval($storageFolderPID).' AND parent=0' . $addWhere .
+			'parent = 0' . $addWhere .
 				t3lib_BEfunc::deleteClause('tx_templavoila_tmplobj').
 				t3lib_BEfunc::versioningPlaceholderClause('tx_templavoila_tmpl'), '', 'sorting'
 		);

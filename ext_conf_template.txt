@@ -6,3 +6,6 @@ path_page = fileadmin/templates/ds/page/
 
  #cat=others;type=boolean;label=XCLASS Templavoila:Static FCEs don't appear in TemplaVoilas New Content Element Wizard. With this option you can activate an XCLASS which fixes this issue
 xclass = 1
+
+ #cat=others;type=boolean;label=Enable global selection:If you enable this option, static FCEs will be selected globally, not only from the current main Storage folder
+xclass_global = 0
