@@ -17,7 +17,7 @@ class ux_tx_templavoila_dbnewcontentel extends tx_templavoila_dbnewcontentel {
 				$dataStructureRecords[$staticDataStructureArr['path']] = $staticDataStructureArr;
 			}
 		}
-			// Fetch all template object records which uare based one of the previously fetched data structures:
+			// Fetch all template object records which are based one of the previously fetched data structures:
 		$addWhere = $this->buildRecordWhere('tx_templavoila_tmplobj');
 		if (!$selectGlobal) {
 			$addWhere = ' AND pid = ' . intval($this->apiObj->getStorageFolderPid($this->id)) . $addWhere;
